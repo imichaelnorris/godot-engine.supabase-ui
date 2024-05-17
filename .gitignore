@@ -8,7 +8,7 @@ override.cfg
 addons/
 
 # Godot-specific ignores
-*.import
+.import/
 export.cfg
 export_presets.cfg
 
