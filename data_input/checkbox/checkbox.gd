@@ -1,7 +1,7 @@
 @tool
 extends VBoxContainer
 class_name SCheckBox
-const Mode = preload ("res://addons/supabase-ui/supabase-ui/theme/theme.gd").Mode
+const Mode = preload ("res://addons/supabase-ui/theme/theme.gd").Mode
 
 signal pressed()
 signal released()

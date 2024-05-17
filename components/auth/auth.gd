@@ -1,7 +1,7 @@
 @tool
 class_name SupabaseAuthPanel
 extends PanelContainer
-const Mode = preload ("res://addons/supabase-ui/supabase-ui/theme/theme.gd").Mode
+const Mode = preload ("res://addons/supabase-ui/theme/theme.gd").Mode
 
 const colors: Dictionary = {
     "panel": [Color.WHITE, Color("#2a2a2a")]

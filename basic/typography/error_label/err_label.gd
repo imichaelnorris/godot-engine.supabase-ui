@@ -1,7 +1,7 @@
 @tool
 extends Label
 class_name SErrorLabel
-const Mode = preload ("res://addons/supabase-ui/supabase-ui/theme/theme.gd").Mode
+const Mode = preload ("res://addons/supabase-ui/theme/theme.gd").Mode
 
 @export var mode: Mode = Mode.LIGHT_MODE: set = set_mode
 

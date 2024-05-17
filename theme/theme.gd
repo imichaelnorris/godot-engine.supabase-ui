@@ -1,8 +1,8 @@
-# How to use
-# const Mode = preload ("res://addons/supabase-ui/supabase-ui/theme/theme.gd").Mode
-# @export var mode: Mode = Mode.LIGHT_MODE: set = set_mode
+#How to use
+#const Mode = preload ("res://addons/supabase-ui/theme/theme.gd").Mode
+#@export var mode: Mode = Mode.LIGHT_MODE: set = set_mode
 
 enum Mode {
-    LIGHT_MODE,
-    DARK_MODE
+	LIGHT_MODE,
+	DARK_MODE
 }

@@ -2,7 +2,7 @@
 extends PanelContainer
 class_name DefaultButton
 
-const Mode = preload ("res://addons/supabase-ui/supabase-ui/theme/theme.gd").Mode
+const Mode = preload ("res://addons/supabase-ui/theme/theme.gd").Mode
 
 signal pressed()
 signal released()
