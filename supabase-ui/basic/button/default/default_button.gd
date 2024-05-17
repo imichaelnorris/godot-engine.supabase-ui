@@ -250,7 +250,7 @@ func _released() -> void:
 
 func hide_icon():
 	get_node("ButtonContainer/Icon").hide()
-    # TODO: figure out how to migrate this to Godot 4
+	# TODO: figure out how to migrate this to Godot 4
 	# rect_size = Vector2.ZERO
 
 func _hover_after():
