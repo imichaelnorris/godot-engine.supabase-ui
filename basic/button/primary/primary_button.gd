@@ -4,7 +4,7 @@ class_name PrimaryButton
 
 @export var enable_loading: bool = false
 
-@onready var loading_texture := load("res://supabase-ui/res/icons/loader.svg")
+@onready var loading_texture := load("res://addons/supabase-ui/res/icons/loader.svg")
 var current_texture: Texture = null
 var loading: bool = false
 
