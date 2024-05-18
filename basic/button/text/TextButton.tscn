@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://supabase-ui/basic/button/text/text_button.gd" type="Script" id=1]
-[ext_resource path="res://supabase-ui/res/fonts/roboto/Roboto-Medium.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://supabase-ui/basic/button/text/TextButton.tres" type="StyleBox" id=3]
+[ext_resource path="res://addons/supabase-ui/basic/button/text/text_button.gd" type="Script" id=1]
+[ext_resource path="res://addons/supabase-ui/res/fonts/roboto/Roboto-Medium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://addons/supabase-ui/basic/button/text/TextButton.tres" type="StyleBox" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 17
