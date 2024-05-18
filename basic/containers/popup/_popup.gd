@@ -1,13 +1,15 @@
 @tool
 class_name SPopup
 extends PopupPanel
-const Mode = preload ("res://addons/supabase-ui/theme/theme.gd").Mode
+const Mode2 = preload ("res://addons/supabase-ui/theme/theme.gd").Mode
 
 signal pressed()
 
 const colors: Dictionary = {
 	"panel": [Color.WHITE, Color("#2a2a2a")]
    }
+
+@export var _mode: Mode2 = Mode2.LIGHT_MODE: set = set_mode
 
 func _ready():
 	add_to_group("supabase_components")

@@ -160,7 +160,7 @@ func set_texture(_texture: Texture) -> void:
 func _set_size(_size: Vector2):
 	size = _size
 	if has_node("Container/InputContainer/Box/Icon"):
-		get_node("Container/InputContainer/Box/Icon").rect_min_size = size
+		get_node("Container/InputContainer/Box/Icon").custom_min_size = size
 
 func set_text(_text: String) -> void:
 	text = _text
@@ -219,6 +219,7 @@ func enable_icon(enabled: bool) -> void:
 
 func set_mode(_mode: int) -> void:
 	mode = _mode
+	print(mode)
 	set_text_color(colors.text[mode])
 	set_name_color(colors.input_name[mode])
 	set_description_color(colors.description[mode])

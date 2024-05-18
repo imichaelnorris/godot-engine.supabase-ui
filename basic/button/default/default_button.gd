@@ -174,7 +174,7 @@ func set_expand(_expand: bool):
 func _set_size(_size: Vector2):
 	size = _size
 	if has_node("ButtonContainer/Icon"):
-		get_node("ButtonContainer/Icon").rect_min_size = size
+		get_node("ButtonContainer/Icon").custom_minimum_size = size
 
 func set_text(_text: String) -> void:
 	text = _text
@@ -194,7 +194,10 @@ func get_text_color() -> Color:
 func enable_icon(enabled: bool) -> void:
 	icon_enabled = enabled
 	if has_node("ButtonContainer/Icon"):
-		get_node("ButtonContainer/Icon").show() if enabled else hide_icon()
+		if enabled:
+			get_node("ButtonContainer/Icon").show()
+		else:
+			hide_icon()
 
 func enable_text(enabled: bool) -> void:
 	text_enabled = enabled
@@ -252,7 +255,7 @@ func _released() -> void:
 func hide_icon():
 	get_node("ButtonContainer/Icon").hide()
 	# TODO: figure out how to migrate this to Godot 4
-	# rect_size = Vector2.ZERO
+	size = Vector2.ZERO
 
 func _hover_after():
 	pass

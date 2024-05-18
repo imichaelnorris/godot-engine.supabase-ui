@@ -58,8 +58,8 @@ alignment = 1
 visible = false
 margin_right = 24.0
 margin_bottom = 24.0
-rect_min_size = Vector2( 24, 24 )
-rect_pivot_offset = Vector2( 12, 12 )
+custom_minimum_size = Vector2( 24, 24 )
+pivot_offset = Vector2( 12, 12 )
 mouse_filter = 2
 size_flags_vertical = 4
 

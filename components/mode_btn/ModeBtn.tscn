@@ -40,7 +40,7 @@ mouse_filter = 2
 [node name="Icon" type="TextureRect" parent="ButtonContainer"]
 margin_right = 24.0
 margin_bottom = 24.0
-rect_min_size = Vector2( 24, 24 )
+custom_min_size = Vector2( 24, 24 )
 mouse_filter = 2
 size_flags_vertical = 4
 texture = ExtResource( 4 )

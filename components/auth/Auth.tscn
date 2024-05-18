@@ -89,7 +89,7 @@ func _notification(what : int) -> void:
         _internal_process(get_process_delta_time())
 
 func _internal_process(_delta : float) -> void:
-    $ButtonContainer/Icon.rect_rotation += _delta*240
+    $ButtonContainer/Icon.rotation += _delta*240
 
 
 

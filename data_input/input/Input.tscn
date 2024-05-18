@@ -117,7 +117,7 @@ custom_constants/separation = 10
 visible = false
 margin_right = 26.0
 margin_bottom = 26.0
-rect_min_size = Vector2( 24, 24 )
+custom_min_size = Vector2( 24, 24 )
 expand = true
 
 [node name="Text" type="LineEdit" parent="Container/InputContainer/Box"]
