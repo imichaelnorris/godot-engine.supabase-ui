@@ -140,13 +140,15 @@ func set_show_description(_value: bool):
     if has_node("Description"): get_node("Description").visible = _value
 
 func _on_focus_entered():
-    $Tween.interpolate_method(self, "set_border", get_border(), colors.border_hover[mode], 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-    $Tween.start()
+    var tween = get_tree().create_tween()
+    tween.tween_method(set_border, get_border(), colors.border_hover[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+    tween.start()
 
 func _on_focus_exited():
     if $CheckboxContainer/CheckBox.pressed: return
-    $Tween.interpolate_method(self, "set_border", get_border(), colors.border[mode], 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-    $Tween.start()
+    var tween = get_tree().create_tween()
+    tween.tween_method(set_border, get_border(), colors.border[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+    tween.start()
 
 func set_toggled(toggled: bool) -> void:
     $CheckboxContainer/CheckBox.pressed = toggled

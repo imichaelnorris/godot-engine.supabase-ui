@@ -199,7 +199,7 @@ func _on_SignWithPassword_pressed():
 
 func set_mode(_mode: int):
 	mode = _mode
-	get("custom_styles/panel").set("bg_color", colors.panel[mode])
+	add_theme_color_override("bg_color", colors.panel[mode])
 
 func _force_resize():
 	hide()

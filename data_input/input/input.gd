@@ -225,25 +225,25 @@ func set_mode(_mode: int) -> void:
     set_shadow_color(colors.shadow[mode])
 
 func set_panel_color(_color: Color) -> void:
-    $Container/InputContainer.get("custom_styles/panel").set("bg_color", _color)
+    $Container/InputContainer.add_theme_color_override("bg_color", _color)
 
 func set_border(_color: Color) -> void:
-    $Container/InputContainer.get("custom_styles/panel").set("border_color", _color)
+    $Container/InputContainer.add_theme_color_override("border_color", _color)
 
 func get_border() -> Color:
-    return $Container/InputContainer.get("custom_styles/panel").get("border_color")
+    return $Container/InputContainer.get_theme_color("border_color")
 
 func set_shadow_color(_color: Color) -> void:
-    $Container/InputContainer.get("custom_styles/panel").set("shadow_color", _color)
+    $Container/InputContainer.add_theme_color_override("shadow_color", _color)
 
 func get_shadow_color() -> Color:
-    return $Container/InputContainer.get("custom_styles/panel").get("shadow_color")
+    return $Container/InputContainer.get_theme_color("shadow_color")
 
 func set_shadow_size(_size: int) -> void:
-    $Container/InputContainer.get("custom_styles/panel").set("shadow_size", _size)
+    $Container/InputContainer.add_theme_costant_override("shadow_size", _size)
 
 func get_shadow_size() -> int:
-    return $Container/InputContainer.get("custom_styles/panel").get("shadow_size")
+    return $Container/InputContainer.get_theme_constant("shadow_size")
 
 func set_font_size(_size: int) -> void:
     font_size = _size
@@ -263,16 +263,18 @@ func set_show_name(_value: bool):
     if has_node("Container/Top"): get_node("Container/Top").visible = show_name
 
 func _on_focus_entered():
-    $Tween.interpolate_method(self, "set_shadow_size", get_shadow_size(), colors.shadow_size_hover[mode], 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-    $Tween.interpolate_method(self, "set_shadow_color", get_shadow_color(), colors.shadow_hover[mode], 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-    $Tween.interpolate_method(self, "set_border", get_border(), colors.border_hover[mode], 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-    $Tween.start()
+    var tween = get_tree().create_tween()
+    tween.tween_method(set_shadow_size, get_shadow_size(), colors.shadow_size_hover[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+    tween.tween_method(set_shadow_color, get_shadow_color(), colors.shadow_hover[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+    tween.tween_method(set_border, get_border(), colors.border_hover[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+    tween.start()
 
 func _on_focus_exited():
-    $Tween.interpolate_method(self, "set_shadow_size", get_shadow_size(), colors.shadow_size[mode], 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-    $Tween.interpolate_method(self, "set_shadow_size", get_shadow_color(), colors.shadow[mode], 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-    $Tween.interpolate_method(self, "set_border", get_border(), colors.border[mode], 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-    $Tween.start()
+    var tween = get_tree().create_tween()
+    tween.tween_method(set_shadow_size, get_shadow_size(), colors.shadow_size[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+    tween.tween_method(set_shadow_size, get_shadow_color(), colors.shadow[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+    tween.tween_method(set_border, get_border(), colors.border[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+    tween.start()
 
 func set_secret(_secret: bool) -> void:
     secret = _secret

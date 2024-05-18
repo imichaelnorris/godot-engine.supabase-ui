@@ -210,24 +210,24 @@ func set_mode(_mode: int) -> void:
 	set_disabled(disabled)
 
 func get_button_color() -> Color:
-	return get("custom_styles/panel").get("bg_color")
+	return get_theme_color("bg_color")
 
 func set_button_color(_color: Color) -> void:
-	get("custom_styles/panel").set("bg_color", _color)
+	add_theme_color_override("bg_color", _color)
 
 func get_button_border() -> Color:
-	return get("custom_styles/panel").get("border_color")
+	return get_theme_color("border_color")
 
 func set_button_border(_color: Color) -> void:
-	get("custom_styles/panel").set("border_color", _color)
+	add_theme_color_override("border_color", _color)
 
 func set_button_shadow(_size: int) -> void:
-	get("custom_styles/panel").set("shadow_size", _size)
+	add_theme_constant_override("shadow_size", _size)
 
 func set_font_size(_size: int) -> void:
 	font_size = _size
 	if has_node("ButtonContainer/Text"):
-		get_node("ButtonContainer/Text").get("custom_fonts/font").set("size", _size)
+		add_theme_font_size_override("font", _size)
 
 func _gui_input(event: InputEvent):
 	if disabled: return
@@ -243,7 +243,8 @@ func _gui_input(event: InputEvent):
 				emit_signal("released")
 
 func _pressed() -> void:
-	$Tween.stop_all()
+	print("supabase auth UI: TODO: Fix stopping tweens")
+	# $Tween.stop_all()
 
 func _released() -> void:
 	pass
@@ -261,17 +262,19 @@ func _hover_before():
 
 func hover_after():
 	_hover_after()
-	$Tween.interpolate_method(self, "set_button_color", get_button_color(), colors.button_hover[mode], 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-	$Tween.interpolate_method(self, "set_button_border", get_button_border(), colors.border_hover[mode], 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-	$Tween.interpolate_method(self, "set_text_color", get_text_color(), colors.text_hover[mode], 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-	$Tween.start()
+	var tween = get_tree().create_tween()
+	tween.tween_method(set_button_color, get_button_color(), colors.button_hover[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tween.tween_method(set_button_border, get_button_border(), colors.border_hover[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tween.tween_method(set_text_color, get_text_color(), colors.text_hover[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tween.start()
 
 func hover_before():
 	_hover_before()
-	$Tween.interpolate_method(self, "set_button_color", get_button_color(), colors.button[mode], 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-	$Tween.interpolate_method(self, "set_button_border", get_button_border(), colors.border[mode], 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-	$Tween.interpolate_method(self, "set_text_color", get_text_color(), colors.text[mode], 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-	$Tween.start()
+	var tween = get_tree().create_tween()
+	tween.tween_method(set_button_color, get_button_color(), colors.button[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tween.tween_method(set_button_border, get_button_border(), colors.border[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tween.tween_method(set_text_color, get_text_color(), colors.text[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tween.start()
 
 func _on_mouse_entered():
 	if disabled: return

@@ -5,7 +5,7 @@ class_name ModeButton
 @export var textures: Array
 
 func _pressed() -> void:
-    $Tween.stop_all()
+    print("supabase auth UI: TODO: Fix stopping tweens")
 
 func set_mode(_mode: int) -> void:
     super.set_mode(_mode)
