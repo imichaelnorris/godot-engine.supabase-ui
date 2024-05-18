@@ -266,7 +266,6 @@ func hover_after():
 	tween.tween_method(set_button_color, get_button_color(), colors.button_hover[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 	tween.tween_method(set_button_border, get_button_border(), colors.border_hover[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 	tween.tween_method(set_text_color, get_text_color(), colors.text_hover[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
-	tween.start()
 
 func hover_before():
 	_hover_before()
@@ -274,7 +273,6 @@ func hover_before():
 	tween.tween_method(set_button_color, get_button_color(), colors.button[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 	tween.tween_method(set_button_border, get_button_border(), colors.border[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 	tween.tween_method(set_text_color, get_text_color(), colors.text[mode], 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
-	tween.start()
 
 func _on_mouse_entered():
 	if disabled: return

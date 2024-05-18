@@ -47,7 +47,7 @@ func load_user() -> void:
 		$Container/SignIn/HBoxContainer/Checkbox.set_toggled(remember_me)
 		$Container/SignIn/EmailAddress.set_text(content.get("email", ""))
 		$Container/SignIn/Password.set_text(content.get("pwd", ""))
-	file.close()
+		file.close()
 
 func save_user() -> void:
 	if not remember_me: return
@@ -61,7 +61,7 @@ func save_user() -> void:
 			pwd = $Container/SignIn/Password.get_text()
 		   }
 		file.store_string(JSON.stringify((content)))
-	file.close()
+		file.close()
 
 func _ready():
 	add_to_group("supabase_components")

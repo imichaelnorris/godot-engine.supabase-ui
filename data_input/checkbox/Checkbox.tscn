@@ -63,6 +63,4 @@ margin_bottom = 56.0
 custom_styles/normal = SubResource( 3 )
 text = "Description"
 
-[node name="Tween" type="Tween" parent="."]
-
 [connection signal="toggled" from="CheckboxContainer/CheckBox" to="." method="_on_CheckBox_toggled"]

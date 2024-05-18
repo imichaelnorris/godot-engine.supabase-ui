@@ -72,5 +72,3 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Primary Button"
 align = 1
 valign = 1
-
-[node name="Tween" type="Tween" parent="."]

@@ -139,8 +139,6 @@ margin_right = 994.0
 margin_bottom = 331.0
 text = "Description"
 
-[node name="Tween" type="Tween" parent="."]
-
 [connection signal="gui_input" from="Container/InputContainer/Box/Text" to="." method="_on_Text_gui_input"]
 [connection signal="text_changed" from="Container/InputContainer/Box/Text" to="." method="_on_Text_text_changed"]
 [connection signal="text_entered" from="Container/InputContainer/Box/Text" to="." method="_on_Text_text_entered"]

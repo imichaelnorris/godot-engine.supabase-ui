@@ -52,5 +52,3 @@ custom_constants/shadow_offset_y = 0
 text = "Link Button"
 align = 1
 valign = 1
-
-[node name="Tween" type="Tween" parent="."]

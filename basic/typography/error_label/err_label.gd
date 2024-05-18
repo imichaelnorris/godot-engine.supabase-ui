@@ -64,7 +64,7 @@ func set_mode(_mode: int) -> void:
 
 func set_font_size(_size: int) -> void:
     font_size = _size
-    get("custom_fonts/font").set("size", _size)
+    add_theme_font_size_override("size", _size)
 
 func set_level(_level: int) -> void:
     level = _level
