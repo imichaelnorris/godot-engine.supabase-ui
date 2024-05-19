@@ -160,6 +160,13 @@ theme = ExtResource("5_m8kfa")
 placeholder_text = "Password"
 secret = true
 
+[node name="ErrorLbl" parent="Container/SignIn" instance=ExtResource("14")]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Container/SignIn"]
 layout_mode = 2
 
@@ -194,12 +201,6 @@ layout_mode = 2
 size_flags_vertical = 1
 focus_mode = 2
 text = "Don't have an account? Sign up"
-
-[node name="ErrorLbl" parent="Container/SignIn" instance=ExtResource("14")]
-visible = false
-layout_mode = 2
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="SignUp" type="VBoxContainer" parent="Container"]
 visible = false
@@ -325,6 +326,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="WithMagicLink" type="VBoxContainer" parent="Container"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -396,7 +398,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="Container/SignIn/HBoxContainer/ForgotPassword" to="." method="_on_ForgotPassword_pressed"]
-[connection signal="pressed" from="Container/SignIn/SignInBtn" to="." method="_on_sign_in_btn_pressed"]
+[connection signal="pressed" from="Container/SignIn/SignInBtn" to="." method="_on_SignInBtn_pressed"]
 [connection signal="pressed" from="Container/SignIn/MagicLink" to="." method="_on_MagicLink_pressed"]
 [connection signal="pressed" from="Container/SignIn/SignUp" to="." method="_on_SignUp_pressed"]
 [connection signal="pressed" from="Container/SignUp/SignIn" to="." method="_on_SignIn_pressed"]
