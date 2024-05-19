@@ -34,11 +34,11 @@ cache/0/32/0/underline_position = 0.0
 cache/0/32/0/underline_thickness = 0.0
 cache/0/32/0/scale = 1.0
 
-[sub_resource type="Theme" id="Theme_rwt16"]
+[sub_resource type="Theme" id="Theme_dcijg"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
-[sub_resource type="Theme" id="Theme_8wpbt"]
+[sub_resource type="Theme" id="Theme_3b662"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
@@ -83,11 +83,11 @@ func _internal_process(_delta : float) -> void:
 	$ButtonContainer/Icon.rotation += _delta*240
 "
 
-[sub_resource type="Theme" id="Theme_4er58"]
+[sub_resource type="Theme" id="Theme_nlocb"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
-[sub_resource type="Theme" id="Theme_nvcxu"]
+[sub_resource type="Theme" id="Theme_h4mbp"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
@@ -190,6 +190,7 @@ secret = true
 layout_mode = 2
 
 [node name="Checkbox" parent="Container/SignIn/HBoxContainer" instance=ExtResource("4")]
+visible = false
 layout_mode = 2
 theme = ExtResource("5_m8kfa")
 
@@ -254,11 +255,11 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/SignUp" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_rwt16")
+theme = SubResource("Theme_dcijg")
 
 [node name="Password" parent="Container/SignUp" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_8wpbt")
+theme = SubResource("Theme_3b662")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Container/SignUp"]
 layout_mode = 2
@@ -318,7 +319,7 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/ForgotPassword" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_4er58")
+theme = SubResource("Theme_nlocb")
 
 [node name="SendInstructionsBtn" type="PanelContainer" parent="Container/ForgotPassword"]
 layout_mode = 2
@@ -368,7 +369,7 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/WithMagicLink" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_nvcxu")
+theme = SubResource("Theme_h4mbp")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_fg45y")
 
 [node name="Top" parent="Container/WithMagicLink/EmailAddress/Container" index="0"]
