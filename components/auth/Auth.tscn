@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dx3l5ko84bsfe"]
+[gd_scene load_steps=25 format=3 uid="uid://dx3l5ko84bsfe"]
 
 [ext_resource type="PackedScene" uid="uid://cn4csb1uai3ai" path="res://addons/supabase-ui/data_input/input/Input.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://addons/supabase-ui/data_input/checkbox/Checkbox.tscn" id="4"]
@@ -10,8 +10,8 @@
 [ext_resource type="Script" path="res://addons/supabase-ui/components/auth/auth.gd" id="9"]
 [ext_resource type="Texture2D" uid="uid://cvseeyhgp6jap" path="res://addons/supabase-ui/res/icons/lock.svg" id="10"]
 [ext_resource type="Texture2D" uid="uid://d2a5ua5km4joe" path="res://addons/supabase-ui/res/icons/inbox.svg" id="11"]
-[ext_resource type="Script" path="res://addons/supabase-ui/basic/button/primary/primary_button.gd" id="12"]
 [ext_resource type="Script" path="res://addons/supabase-ui/data_input/input/input.gd" id="13"]
+[ext_resource type="Script" path="res://addons/supabase-ui/components/auth/custom_scene.gd" id="13_a48jh"]
 [ext_resource type="PackedScene" path="res://addons/supabase-ui/basic/typography/error_label/ErrorLabel.tscn" id="14"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_364iw"]
@@ -34,11 +34,11 @@ cache/0/32/0/underline_position = 0.0
 cache/0/32/0/underline_thickness = 0.0
 cache/0/32/0/scale = 1.0
 
-[sub_resource type="Theme" id="Theme_dcijg"]
+[sub_resource type="Theme" id="Theme_h8bxp"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
-[sub_resource type="Theme" id="Theme_3b662"]
+[sub_resource type="Theme" id="Theme_fmfim"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
@@ -57,37 +57,11 @@ cache/0/16/0/scale = 1.0
 resource_local_to_scene = true
 default_font = SubResource("13")
 
-[sub_resource type="GDScript" id="23"]
-script/source = "@tool
-extends DefaultButton
-class_name PrimaryButton2
-
-@export var enable_loading : bool = false
-
-var loading_icon := load(\"res://addons/supabase-ui/res/icons/loader.svg\")
-var loading : bool = false
-
-func load_anim():
-	set_process_internal(true)
-	loading = true
-
-func stop_loading() -> void:
-	set_process_internal(false)
-	loading = false
-
-func _notification(what : int) -> void:
-	if what == NOTIFICATION_INTERNAL_PROCESS:
-		_internal_process(get_process_delta_time())
-
-func _internal_process(_delta : float) -> void:
-	$ButtonContainer/Icon.rotation += _delta*240
-"
-
-[sub_resource type="Theme" id="Theme_nlocb"]
+[sub_resource type="Theme" id="Theme_4005p"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
-[sub_resource type="Theme" id="Theme_h4mbp"]
+[sub_resource type="Theme" id="Theme_ybsr5"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
@@ -202,29 +176,9 @@ text = "Forgot your password?"
 [node name="HSeparator" type="HSeparator" parent="Container/SignIn"]
 layout_mode = 2
 
-[node name="SignInBtn" type="PanelContainer" parent="Container/SignIn"]
+[node name="SignInBtn" type="Button" parent="Container/SignIn"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-script = ExtResource("12")
-
-[node name="ButtonContainer" type="HBoxContainer" parent="Container/SignIn/SignInBtn"]
-layout_mode = 2
-mouse_filter = 2
-alignment = 1
-
-[node name="Icon" type="TextureRect" parent="Container/SignIn/SignInBtn/ButtonContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-mouse_filter = 2
-texture = ExtResource("10")
-expand_mode = 1
-
-[node name="Text" type="Label" parent="Container/SignIn/SignInBtn/ButtonContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
 text = "Sign In"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="HSeparator2" type="HSeparator" parent="Container/SignIn"]
 layout_mode = 2
@@ -255,11 +209,11 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/SignUp" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_dcijg")
+theme = SubResource("Theme_h8bxp")
 
 [node name="Password" parent="Container/SignUp" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_3b662")
+theme = SubResource("Theme_fmfim")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Container/SignUp"]
 layout_mode = 2
@@ -274,7 +228,7 @@ layout_mode = 2
 [node name="SignUpBtn" type="PanelContainer" parent="Container/SignUp"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-script = SubResource("23")
+script = ExtResource("13_a48jh")
 enable_loading = true
 
 [node name="ButtonContainer" type="HBoxContainer" parent="Container/SignUp/SignUpBtn"]
@@ -319,12 +273,18 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/ForgotPassword" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_nlocb")
+theme = SubResource("Theme_4005p")
+
+[node name="Top" parent="Container/ForgotPassword/EmailAddress/Container" index="0"]
+visible = false
+
+[node name="Text" parent="Container/ForgotPassword/EmailAddress/Container/InputContainer/Box" index="0"]
+placeholder_text = "Email"
 
 [node name="SendInstructionsBtn" type="PanelContainer" parent="Container/ForgotPassword"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-script = SubResource("23")
+script = ExtResource("13_a48jh")
 enable_loading = true
 
 [node name="ButtonContainer" type="HBoxContainer" parent="Container/ForgotPassword/SendInstructionsBtn"]
@@ -346,6 +306,9 @@ text = "Send reset password instructions"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LinkButton" type="LinkButton" parent="Container/ForgotPassword/SendInstructionsBtn"]
+layout_mode = 2
+
 [node name="HSeparator3" type="HSeparator" parent="Container/ForgotPassword"]
 layout_mode = 2
 
@@ -362,14 +325,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="WithMagicLink" type="VBoxContainer" parent="Container"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/WithMagicLink" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_h4mbp")
+theme = SubResource("Theme_ybsr5")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_fg45y")
 
 [node name="Top" parent="Container/WithMagicLink/EmailAddress/Container" index="0"]
@@ -391,10 +353,15 @@ placeholder_text = "Email"
 [node name="SendLinkBtn" type="PanelContainer" parent="Container/WithMagicLink"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-script = SubResource("23")
+script = ExtResource("13_a48jh")
 enable_loading = true
 
+[node name="SendMagicLinkBtn" type="Button" parent="Container/WithMagicLink/SendLinkBtn"]
+layout_mode = 2
+text = "Send magic link"
+
 [node name="ButtonContainer" type="HBoxContainer" parent="Container/WithMagicLink/SendLinkBtn"]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 alignment = 1
@@ -429,11 +396,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="Container/SignIn/HBoxContainer/ForgotPassword" to="." method="_on_ForgotPassword_pressed"]
+[connection signal="pressed" from="Container/SignIn/SignInBtn" to="." method="_on_sign_in_btn_pressed"]
 [connection signal="pressed" from="Container/SignIn/MagicLink" to="." method="_on_MagicLink_pressed"]
 [connection signal="pressed" from="Container/SignIn/SignUp" to="." method="_on_SignUp_pressed"]
 [connection signal="pressed" from="Container/SignUp/SignIn" to="." method="_on_SignIn_pressed"]
 [connection signal="pressed" from="Container/ForgotPassword/BackToSignIn" to="." method="_on_BackToSignIn_pressed"]
+[connection signal="pressed" from="Container/WithMagicLink/SendLinkBtn/SendMagicLinkBtn" to="." method="_on_MagicLink_pressed"]
 [connection signal="pressed" from="Container/WithMagicLink/SignWithPassword" to="." method="_on_SignWithPassword_pressed"]
 
 [editable path="Container/SignIn/Password"]
+[editable path="Container/ForgotPassword/EmailAddress"]
 [editable path="Container/WithMagicLink/EmailAddress"]
