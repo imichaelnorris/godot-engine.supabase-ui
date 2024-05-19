@@ -1,11 +1,6 @@
 @tool
 class_name SupabaseAuthPanel
 extends PanelContainer
-const Mode = preload ("res://addons/supabase-ui/theme/theme.gd").Mode
-
-const colors: Dictionary = {
-	"panel": [Color.WHITE, Color("#2a2a2a")]
-   }
 
 signal signed_in(user)
 signal signed_up(user)
@@ -25,7 +20,6 @@ signal error(error)
 
 @export var app_name: String = "":
 	set = set_app_name
-@export var mode: Mode = Mode.LIGHT_MODE: set = set_mode
 
 var remember_me: bool = false
 
@@ -196,10 +190,6 @@ func _on_SignWithPassword_pressed():
 	sign_in_box.show()
 	with_magic_link_box.hide()
 	_force_resize()
-
-func set_mode(_mode: int):
-	mode = _mode
-	add_theme_color_override("bg_color", colors.panel[mode])
 
 func _force_resize():
 	hide()
