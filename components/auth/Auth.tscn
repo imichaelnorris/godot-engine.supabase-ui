@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dx3l5ko84bsfe"]
+[gd_scene load_steps=24 format=3 uid="uid://dx3l5ko84bsfe"]
 
 [ext_resource type="PackedScene" uid="uid://cn4csb1uai3ai" path="res://addons/supabase-ui/data_input/input/Input.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://addons/supabase-ui/data_input/checkbox/Checkbox.tscn" id="4"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cvseeyhgp6jap" path="res://addons/supabase-ui/res/icons/lock.svg" id="10"]
 [ext_resource type="Texture2D" uid="uid://d2a5ua5km4joe" path="res://addons/supabase-ui/res/icons/inbox.svg" id="11"]
 [ext_resource type="Script" path="res://addons/supabase-ui/data_input/input/input.gd" id="13"]
-[ext_resource type="Script" path="res://addons/supabase-ui/components/auth/custom_scene.gd" id="13_a48jh"]
 [ext_resource type="PackedScene" path="res://addons/supabase-ui/basic/typography/error_label/ErrorLabel.tscn" id="14"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_364iw"]
@@ -34,11 +33,11 @@ cache/0/32/0/underline_position = 0.0
 cache/0/32/0/underline_thickness = 0.0
 cache/0/32/0/scale = 1.0
 
-[sub_resource type="Theme" id="Theme_h8bxp"]
+[sub_resource type="Theme" id="Theme_ruer4"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
-[sub_resource type="Theme" id="Theme_fmfim"]
+[sub_resource type="Theme" id="Theme_hy0q7"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
@@ -57,11 +56,11 @@ cache/0/16/0/scale = 1.0
 resource_local_to_scene = true
 default_font = SubResource("13")
 
-[sub_resource type="Theme" id="Theme_4005p"]
+[sub_resource type="Theme" id="Theme_2oies"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
-[sub_resource type="Theme" id="Theme_ybsr5"]
+[sub_resource type="Theme" id="Theme_nrwoq"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
@@ -210,11 +209,11 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/SignUp" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_h8bxp")
+theme = SubResource("Theme_ruer4")
 
 [node name="Password" parent="Container/SignUp" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_fmfim")
+theme = SubResource("Theme_hy0q7")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Container/SignUp"]
 layout_mode = 2
@@ -229,8 +228,6 @@ layout_mode = 2
 [node name="SignUpBtn" type="PanelContainer" parent="Container/SignUp"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-script = ExtResource("13_a48jh")
-enable_loading = true
 
 [node name="ButtonContainer" type="HBoxContainer" parent="Container/SignUp/SignUpBtn"]
 layout_mode = 2
@@ -274,7 +271,7 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/ForgotPassword" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_4005p")
+theme = SubResource("Theme_2oies")
 
 [node name="Top" parent="Container/ForgotPassword/EmailAddress/Container" index="0"]
 visible = false
@@ -285,8 +282,6 @@ placeholder_text = "Email"
 [node name="SendInstructionsBtn" type="PanelContainer" parent="Container/ForgotPassword"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-script = ExtResource("13_a48jh")
-enable_loading = true
 
 [node name="ButtonContainer" type="HBoxContainer" parent="Container/ForgotPassword/SendInstructionsBtn"]
 layout_mode = 2
@@ -333,7 +328,7 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/WithMagicLink" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_ybsr5")
+theme = SubResource("Theme_nrwoq")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_fg45y")
 
 [node name="Top" parent="Container/WithMagicLink/EmailAddress/Container" index="0"]
@@ -355,8 +350,6 @@ placeholder_text = "Email"
 [node name="SendLinkBtn" type="PanelContainer" parent="Container/WithMagicLink"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-script = ExtResource("13_a48jh")
-enable_loading = true
 
 [node name="SendMagicLinkBtn" type="Button" parent="Container/WithMagicLink/SendLinkBtn"]
 layout_mode = 2

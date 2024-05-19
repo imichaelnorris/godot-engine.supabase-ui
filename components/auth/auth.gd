@@ -86,7 +86,6 @@ func _on_SignInBtn_pressed():
 		return
 	save_user()
 	emit_signal("signed_in", sign_in.user)
-	sign_in_box.get_node("SignInBtn").stop_loading()
 
 func show_sign_in_error(message: String):
 	sign_in_error_lbl.set_text(message)
@@ -108,13 +107,11 @@ func _on_SignUpBtn_pressed():
 		return
 	save_user()
 	emit_signal("signed_up", sign_up.user)
-	sign_up_box.get_node("SignUpBtn").stop_loading()
 
 func show_sign_up_error(message: String):
 	sign_up_error_lbl.set_text(message)
 	sign_up_error_lbl.show()
 	emit_signal("error", message)
-	sign_up_box.get_node("SignUpBtn").stop_loading()
 
 # =========== FORGOT PASSWORD ==================
 func _on_SendInstructionsBtn_pressed():
@@ -129,13 +126,11 @@ func _on_SendInstructionsBtn_pressed():
 		show_forgot_password_error(str(forgot_pwd.error))
 		return
 	emit_signal("instructions_send")
-	forgot_password_box.get_node("SendInstructionsBtn").stop_loading()
 
 func show_forgot_password_error(message: String):
 	forgot_password_error_lbl.set_text(message)
 	forgot_password_error_lbl.show()
 	emit_signal("error", message)
-	forgot_password_box.get_node("SendInstructionsBtn").stop_loading()
 
 # =========== MAGIC LINK ==================
 func _on_SendLinkBtn_pressed():
@@ -150,13 +145,11 @@ func _on_SendLinkBtn_pressed():
 		show_magic_link_error(str(magic_link.error))
 		return
 	emit_signal("magic_link_send")
-	with_magic_link_box.get_node("SendLinkBtn").stop_loading()
 
 func show_magic_link_error(message: String):
 	magic_link_error_lbl.set_text(message)
 	magic_link_error_lbl.show()
 	emit_signal("error", message)
-	with_magic_link_box.get_node("SendLinkBtn").stop_loading()
 
 # ================================================
 
