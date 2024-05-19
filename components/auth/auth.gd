@@ -75,8 +75,8 @@ func set_app_name(_name: String) -> void:
 func _on_SignInBtn_pressed():
 	sign_in_error_lbl.hide()
 	_force_resize()
-	var user_mail: String = $Container/SignIn/EmailAddress.get_text()
-	var user_pwd: String = $Container/SignIn/Password.get_text()
+	var user_mail: String = $Container/SignIn/EmailAddress/Container/InputContainer/Box/Text.get_text()
+	var user_pwd: String = $Container/SignIn/Password/Container/InputContainer/Box/Text.get_text()
 	if user_mail == "" or user_pwd == "":
 		show_sign_in_error("You must provide either an email/password combination or a third-party provider.")
 		return
@@ -92,7 +92,6 @@ func show_sign_in_error(message: String):
 	sign_in_error_lbl.set_text(message)
 	sign_in_error_lbl.show()
 	emit_signal("error", message)
-	sign_in_box.get_node("SignInBtn").stop_loading()
 
 # =========== SIGN UP ==================
 func _on_SignUpBtn_pressed():
