@@ -32,11 +32,11 @@ cache/0/32/0/underline_position = 0.0
 cache/0/32/0/underline_thickness = 0.0
 cache/0/32/0/scale = 1.0
 
-[sub_resource type="Theme" id="Theme_aquio"]
+[sub_resource type="Theme" id="Theme_804kj"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
-[sub_resource type="Theme" id="Theme_7442d"]
+[sub_resource type="Theme" id="Theme_1pmvt"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
@@ -55,11 +55,11 @@ cache/0/16/0/scale = 1.0
 resource_local_to_scene = true
 default_font = SubResource("13")
 
-[sub_resource type="Theme" id="Theme_vftix"]
+[sub_resource type="Theme" id="Theme_1h0mu"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
-[sub_resource type="Theme" id="Theme_tdb8f"]
+[sub_resource type="Theme" id="Theme_x8bry"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
@@ -210,7 +210,7 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/SignUp" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_aquio")
+theme = SubResource("Theme_804kj")
 
 [node name="Top" parent="Container/SignUp/EmailAddress/Container" index="0"]
 visible = false
@@ -220,7 +220,7 @@ placeholder_text = "Email"
 
 [node name="Password" parent="Container/SignUp" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_7442d")
+theme = SubResource("Theme_1pmvt")
 
 [node name="Top" parent="Container/SignUp/Password/Container" index="0"]
 visible = false
@@ -273,7 +273,7 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/ForgotPassword" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_vftix")
+theme = SubResource("Theme_1h0mu")
 
 [node name="Top" parent="Container/ForgotPassword/EmailAddress/Container" index="0"]
 visible = false
@@ -330,7 +330,7 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/WithMagicLink" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_tdb8f")
+theme = SubResource("Theme_x8bry")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_fg45y")
 
 [node name="Top" parent="Container/WithMagicLink/EmailAddress/Container" index="0"]
