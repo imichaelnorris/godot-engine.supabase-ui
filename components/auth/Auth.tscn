@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dx3l5ko84bsfe"]
+[gd_scene load_steps=23 format=3 uid="uid://dx3l5ko84bsfe"]
 
 [ext_resource type="PackedScene" uid="uid://cn4csb1uai3ai" path="res://addons/supabase-ui/data_input/input/Input.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://addons/supabase-ui/data_input/checkbox/Checkbox.tscn" id="4"]
@@ -8,7 +8,6 @@
 [ext_resource type="FontFile" uid="uid://y47dcohhwmrf" path="res://addons/supabase-ui/res/fonts/roboto/Roboto-Medium.ttf" id="7"]
 [ext_resource type="PackedScene" path="res://addons/supabase-ui/basic/typography/base_label/BaseLabel.tscn" id="8"]
 [ext_resource type="Script" path="res://addons/supabase-ui/components/auth/auth.gd" id="9"]
-[ext_resource type="Texture2D" uid="uid://cvseeyhgp6jap" path="res://addons/supabase-ui/res/icons/lock.svg" id="10"]
 [ext_resource type="Texture2D" uid="uid://d2a5ua5km4joe" path="res://addons/supabase-ui/res/icons/inbox.svg" id="11"]
 [ext_resource type="Script" path="res://addons/supabase-ui/data_input/input/input.gd" id="13"]
 [ext_resource type="PackedScene" path="res://addons/supabase-ui/basic/typography/error_label/ErrorLabel.tscn" id="14"]
@@ -33,11 +32,11 @@ cache/0/32/0/underline_position = 0.0
 cache/0/32/0/underline_thickness = 0.0
 cache/0/32/0/scale = 1.0
 
-[sub_resource type="Theme" id="Theme_ruer4"]
+[sub_resource type="Theme" id="Theme_aquio"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
-[sub_resource type="Theme" id="Theme_hy0q7"]
+[sub_resource type="Theme" id="Theme_7442d"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
@@ -56,11 +55,11 @@ cache/0/16/0/scale = 1.0
 resource_local_to_scene = true
 default_font = SubResource("13")
 
-[sub_resource type="Theme" id="Theme_2oies"]
+[sub_resource type="Theme" id="Theme_vftix"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
-[sub_resource type="Theme" id="Theme_nrwoq"]
+[sub_resource type="Theme" id="Theme_tdb8f"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
@@ -184,12 +183,14 @@ layout_mode = 2
 
 [node name="SignInBtn" type="Button" parent="Container/SignIn"]
 layout_mode = 2
+theme = ExtResource("5_m8kfa")
 text = "Sign In"
 
 [node name="HSeparator2" type="HSeparator" parent="Container/SignIn"]
 layout_mode = 2
 
 [node name="MagicLink" parent="Container/SignIn" instance=ExtResource("5")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 1
 focus_mode = 2
@@ -209,13 +210,27 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/SignUp" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_ruer4")
+theme = SubResource("Theme_aquio")
+
+[node name="Top" parent="Container/SignUp/EmailAddress/Container" index="0"]
+visible = false
+
+[node name="Text" parent="Container/SignUp/EmailAddress/Container/InputContainer/Box" index="0"]
+placeholder_text = "Email"
 
 [node name="Password" parent="Container/SignUp" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_hy0q7")
+theme = SubResource("Theme_7442d")
+
+[node name="Top" parent="Container/SignUp/Password/Container" index="0"]
+visible = false
+
+[node name="Text" parent="Container/SignUp/Password/Container/InputContainer/Box" index="0"]
+placeholder_text = "Password"
+secret = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Container/SignUp"]
+visible = false
 layout_mode = 2
 
 [node name="Checkbox" parent="Container/SignUp/HBoxContainer" instance=ExtResource("4")]
@@ -228,25 +243,12 @@ layout_mode = 2
 [node name="SignUpBtn" type="PanelContainer" parent="Container/SignUp"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme = ExtResource("5_m8kfa")
 
-[node name="ButtonContainer" type="HBoxContainer" parent="Container/SignUp/SignUpBtn"]
+[node name="SignUpBtn" type="Button" parent="Container/SignUp/SignUpBtn"]
 layout_mode = 2
-mouse_filter = 2
-alignment = 1
-
-[node name="Icon" type="TextureRect" parent="Container/SignUp/SignUpBtn/ButtonContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-mouse_filter = 2
-texture = ExtResource("10")
-expand_mode = 1
-
-[node name="Text" type="Label" parent="Container/SignUp/SignUpBtn/ButtonContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
+theme = ExtResource("5_m8kfa")
 text = "Sign Up"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="HSeparator2" type="HSeparator" parent="Container/SignUp"]
 layout_mode = 2
@@ -255,7 +257,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 6
 focus_mode = 2
-text = "Do you have an account? Sign up"
+text = "Do you have an account? Sign in"
 
 [node name="ErrorLbl" parent="Container/SignUp" instance=ExtResource("14")]
 visible = false
@@ -271,7 +273,7 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/ForgotPassword" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_2oies")
+theme = SubResource("Theme_vftix")
 
 [node name="Top" parent="Container/ForgotPassword/EmailAddress/Container" index="0"]
 visible = false
@@ -328,7 +330,7 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/WithMagicLink" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_nrwoq")
+theme = SubResource("Theme_tdb8f")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_fg45y")
 
 [node name="Top" parent="Container/WithMagicLink/EmailAddress/Container" index="0"]
@@ -394,11 +396,14 @@ vertical_alignment = 1
 [connection signal="pressed" from="Container/SignIn/SignInBtn" to="." method="_on_SignInBtn_pressed"]
 [connection signal="pressed" from="Container/SignIn/MagicLink" to="." method="_on_MagicLink_pressed"]
 [connection signal="pressed" from="Container/SignIn/SignUp" to="." method="_on_SignUp_pressed"]
+[connection signal="pressed" from="Container/SignUp/SignUpBtn/SignUpBtn" to="." method="_on_SignUpBtn_pressed"]
 [connection signal="pressed" from="Container/SignUp/SignIn" to="." method="_on_SignIn_pressed"]
 [connection signal="pressed" from="Container/ForgotPassword/BackToSignIn" to="." method="_on_BackToSignIn_pressed"]
 [connection signal="pressed" from="Container/WithMagicLink/SendLinkBtn/SendMagicLinkBtn" to="." method="_on_MagicLink_pressed"]
 [connection signal="pressed" from="Container/WithMagicLink/SignWithPassword" to="." method="_on_SignWithPassword_pressed"]
 
 [editable path="Container/SignIn/Password"]
+[editable path="Container/SignUp/EmailAddress"]
+[editable path="Container/SignUp/Password"]
 [editable path="Container/ForgotPassword/EmailAddress"]
 [editable path="Container/WithMagicLink/EmailAddress"]

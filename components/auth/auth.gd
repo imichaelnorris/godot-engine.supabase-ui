@@ -85,7 +85,7 @@ func _on_SignInBtn_pressed():
 		show_sign_in_error(str(sign_in.error))
 		return
 	save_user()
-	emit_signal("signed_in", sign_in.user)
+	signed_in.emit(sign_in.user)
 
 func show_sign_in_error(message: String):
 	sign_in_error_lbl.set_text(message)
@@ -96,8 +96,8 @@ func show_sign_in_error(message: String):
 func _on_SignUpBtn_pressed():
 	sign_up_error_lbl.hide()
 	_force_resize()
-	var user_mail: String = $Container/SignUp/EmailAddress.get_text()
-	var user_pwd: String = $Container/SignUp/Password.get_text()
+	var user_mail: String = $Container/SignUp/EmailAddress/Container/InputContainer/Box/Text.text
+	var user_pwd: String = $Container/SignUp/Password/Container/InputContainer/Box/Text.text
 	if user_mail == "" or user_pwd == "":
 		show_sign_up_error("You must provide either an email/password combination or a third-party provider.")
 		return
