@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dx3l5ko84bsfe"]
+[gd_scene load_steps=22 format=3 uid="uid://dx3l5ko84bsfe"]
 
 [ext_resource type="PackedScene" uid="uid://cn4csb1uai3ai" path="res://addons/supabase-ui/data_input/input/Input.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://addons/supabase-ui/data_input/checkbox/Checkbox.tscn" id="4"]
@@ -31,12 +31,18 @@ cache/0/32/0/descent = 0.0
 cache/0/32/0/underline_position = 0.0
 cache/0/32/0/underline_thickness = 0.0
 cache/0/32/0/scale = 1.0
+cache/0/44/0/ascent = 0.0
+cache/0/44/0/descent = 0.0
+cache/0/44/0/underline_position = 0.0
+cache/0/44/0/underline_thickness = 0.0
+cache/0/44/0/scale = 1.0
+cache/0/64/0/ascent = 0.0
+cache/0/64/0/descent = 0.0
+cache/0/64/0/underline_position = 0.0
+cache/0/64/0/underline_thickness = 0.0
+cache/0/64/0/scale = 1.0
 
-[sub_resource type="Theme" id="Theme_804kj"]
-resource_local_to_scene = true
-default_font = SubResource("3")
-
-[sub_resource type="Theme" id="Theme_1pmvt"]
+[sub_resource type="Theme" id="Theme_ml45x"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
@@ -50,16 +56,21 @@ cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/44/0/ascent = 0.0
+cache/0/44/0/descent = 0.0
+cache/0/44/0/underline_position = 0.0
+cache/0/44/0/underline_thickness = 0.0
+cache/0/44/0/scale = 1.0
 
 [sub_resource type="Theme" id="22"]
 resource_local_to_scene = true
 default_font = SubResource("13")
 
-[sub_resource type="Theme" id="Theme_1h0mu"]
+[sub_resource type="Theme" id="Theme_4f8hh"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
-[sub_resource type="Theme" id="Theme_x8bry"]
+[sub_resource type="Theme" id="Theme_ufrof"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
@@ -71,6 +82,7 @@ default_font = SubResource("3")
 offset_right = 313.0
 offset_bottom = 256.0
 mouse_filter = 2
+theme = ExtResource("5_m8kfa")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_364iw")
 script = ExtResource("9")
 
@@ -88,7 +100,6 @@ size_flags_horizontal = 6
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-mouse_filter = 2
 
 [node name="EmailAddress" type="PanelContainer" parent="Container/SignIn"]
 layout_mode = 2
@@ -197,6 +208,7 @@ focus_mode = 2
 text = "Sign in with magic link"
 
 [node name="SignUp" parent="Container/SignIn" instance=ExtResource("5")]
+custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 2
 size_flags_vertical = 1
 focus_mode = 2
@@ -210,17 +222,22 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/SignUp" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_804kj")
+
+[node name="Container" parent="Container/SignUp/EmailAddress" index="0"]
+theme = ExtResource("5_m8kfa")
 
 [node name="Top" parent="Container/SignUp/EmailAddress/Container" index="0"]
 visible = false
+
+[node name="Box" parent="Container/SignUp/EmailAddress/Container/InputContainer" index="0"]
+theme = ExtResource("5_m8kfa")
 
 [node name="Text" parent="Container/SignUp/EmailAddress/Container/InputContainer/Box" index="0"]
 placeholder_text = "Email"
 
 [node name="Password" parent="Container/SignUp" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_1pmvt")
+theme = SubResource("Theme_ml45x")
 
 [node name="Top" parent="Container/SignUp/Password/Container" index="0"]
 visible = false
@@ -273,7 +290,7 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/ForgotPassword" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_1h0mu")
+theme = SubResource("Theme_4f8hh")
 
 [node name="Top" parent="Container/ForgotPassword/EmailAddress/Container" index="0"]
 visible = false
@@ -330,7 +347,7 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/WithMagicLink" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_x8bry")
+theme = SubResource("Theme_ufrof")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_fg45y")
 
 [node name="Top" parent="Container/WithMagicLink/EmailAddress/Container" index="0"]
