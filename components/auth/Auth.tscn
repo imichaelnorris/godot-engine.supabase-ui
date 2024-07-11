@@ -140,6 +140,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("5_m8kfa")
 placeholder_text = "Email"
+select_all_on_focus = true
 
 [node name="Description" type="Label" parent="Container/SignIn/EmailAddress/Container"]
 visible = false
@@ -167,6 +168,7 @@ theme = ExtResource("5_m8kfa")
 
 [node name="Text" parent="Container/SignIn/Password/Container/InputContainer/Box" index="0"]
 placeholder_text = "Password"
+select_all_on_focus = true
 secret = true
 
 [node name="ErrorLbl" parent="Container/SignIn" instance=ExtResource("14")]
@@ -234,6 +236,7 @@ theme = ExtResource("5_m8kfa")
 
 [node name="Text" parent="Container/SignUp/EmailAddress/Container/InputContainer/Box" index="0"]
 placeholder_text = "Email"
+select_all_on_focus = true
 
 [node name="Password" parent="Container/SignUp" instance=ExtResource("1")]
 layout_mode = 2
@@ -244,6 +247,7 @@ visible = false
 
 [node name="Text" parent="Container/SignUp/Password/Container/InputContainer/Box" index="0"]
 placeholder_text = "Password"
+select_all_on_focus = true
 secret = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Container/SignUp"]
