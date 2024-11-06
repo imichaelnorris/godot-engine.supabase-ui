@@ -42,7 +42,7 @@ cache/0/64/0/underline_position = 0.0
 cache/0/64/0/underline_thickness = 0.0
 cache/0/64/0/scale = 1.0
 
-[sub_resource type="Theme" id="Theme_wwcbn"]
+[sub_resource type="Theme" id="Theme_0uvb2"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
@@ -66,11 +66,11 @@ cache/0/44/0/scale = 1.0
 resource_local_to_scene = true
 default_font = SubResource("13")
 
-[sub_resource type="Theme" id="Theme_y07bo"]
+[sub_resource type="Theme" id="Theme_0gn0p"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
-[sub_resource type="Theme" id="Theme_ry66j"]
+[sub_resource type="Theme" id="Theme_bdpld"]
 resource_local_to_scene = true
 default_font = SubResource("3")
 
@@ -240,7 +240,7 @@ select_all_on_focus = true
 
 [node name="Password" parent="Container/SignUp" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_wwcbn")
+theme = SubResource("Theme_0uvb2")
 
 [node name="Top" parent="Container/SignUp/Password/Container" index="0"]
 visible = false
@@ -295,7 +295,7 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/ForgotPassword" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_y07bo")
+theme = SubResource("Theme_0gn0p")
 
 [node name="Top" parent="Container/ForgotPassword/EmailAddress/Container" index="0"]
 visible = false
@@ -352,7 +352,7 @@ size_flags_vertical = 3
 
 [node name="EmailAddress" parent="Container/WithMagicLink" instance=ExtResource("1")]
 layout_mode = 2
-theme = SubResource("Theme_ry66j")
+theme = SubResource("Theme_bdpld")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_fg45y")
 
 [node name="Top" parent="Container/WithMagicLink/EmailAddress/Container" index="0"]
